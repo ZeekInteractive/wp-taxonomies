@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Taxonomies;
+namespace Zeek\WpTaxonomies;
 
+use Zeek\Modernity\Support\Str;
 use Zeek\Modernity\Traits\Singleton;
 
 abstract class Taxonomy {
@@ -39,7 +40,7 @@ abstract class Taxonomy {
 	}
 
 	private function taxonomylabels( string $singular ) {
-		$plural = pluralize( $singular );
+		$plural = Str::pluralize( $singular );
 
 		return [
 			'name'               => $plural,
