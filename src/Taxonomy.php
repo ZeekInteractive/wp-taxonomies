@@ -2,7 +2,6 @@
 
 namespace App\Taxonomies;
 
-use Zeek\Modernity\Support\Str;
 use Zeek\Modernity\Traits\Singleton;
 
 abstract class Taxonomy {
@@ -10,6 +9,7 @@ abstract class Taxonomy {
 
 	protected string $slug;
 	protected string $singular;
+	protected array $postTypes = [];
 
 	protected bool $public = true;
 	protected bool $show_ui = true;
@@ -25,7 +25,7 @@ abstract class Taxonomy {
 	}
 
 	public function init() {
-		register_taxonomy( $this->slug, Constants::POST_TYPES, [
+		register_taxonomy( $this->slug, $this->postTypes, [
 			'labels'            => $this->taxonomylabels( $this->singular ),
 			'hierarchical'      => $this->hierarchical,
 			'public'            => $this->public,
