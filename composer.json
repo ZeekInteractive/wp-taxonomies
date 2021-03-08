@@ -1,0 +1,22 @@
+{
+    "name": "zeek/wp-taxonomies",
+    "description": "Utility for building out taxonomies.",
+    "type": "library",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Aaron Holbrook",
+            "email": "aaron@zeek.com"
+        }
+    ],
+    "autoload": {
+		"psr-4": {
+			"Zeek\\WpTaxonomies\\": "src/"
+		}
+	},
+	"require": {
+		"php": ">=7.4",
+
+		"zeek/modernity": "^0.1|dev-master"
+	}
+}
