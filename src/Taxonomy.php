@@ -2,11 +2,10 @@
 
 namespace Zeek\WpTaxonomies;
 
+use Zeek\Modernity\Patterns\Singleton;
 use Zeek\Modernity\Support\Str;
-use Zeek\Modernity\Traits\Singleton;
 
-abstract class Taxonomy {
-	use Singleton;
+abstract class Taxonomy extends Singleton {
 
 	protected string $slug;
 	protected string $singular;
@@ -22,10 +21,10 @@ abstract class Taxonomy {
 	protected bool $show_in_rest = true;
 
 	protected function __construct() {
-		add_action( 'init', [ $this, 'init' ], 5 );
+		add_action( 'init', [ $this, 'register' ], 5 );
 	}
 
-	public function init() {
+	public function register() {
 		register_taxonomy( $this->slug, $this->postTypes, [
 			'labels'            => $this->taxonomylabels( $this->singular ),
 			'hierarchical'      => $this->hierarchical,
