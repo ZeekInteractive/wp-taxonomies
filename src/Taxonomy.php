@@ -38,7 +38,7 @@ abstract class Taxonomy extends Singleton {
 		] );
 	}
 
-	private function taxonomylabels( string $singular ) {
+	protected function taxonomylabels( string $singular ) {
 		$plural = Str::pluralize( $singular );
 
 		return [
